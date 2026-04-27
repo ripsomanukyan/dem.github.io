@@ -3,80 +3,413 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой блог</title>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <style>
+        /* Стили для блока с ответом */
+        .bot-response {
+            background: #f0f7ff;
+            border-left: 4px solid #007bff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-family: sans-serif;
+        }
+        .bot-response h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .bot-response ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .bot-response code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .footer-info {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-top: 30px;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px;
+            background: #ffffff;
+            border: 1px solid #d6dbe3;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #e4e8ef;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #1f2937;
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        .group {
+            margin-bottom: 22px;
+            padding: 10px 12px;
+            background: #ffffff;
+            border: 1px solid #e4e8ef;
+            border-radius: 8px;
+        }
+        .group h3 {
+            margin: 4px 0 10px;
+            color: #374151;
+        }
+        .results {
+            background: #ffffff;
+            border: 1px solid #e4e8ef;
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin: 12px 0 18px;
+        }
+        .results p {
+            margin: 6px 0;
+        }
+        .lab-2026 {
+            margin-top: 10px;
+            padding: 8px 0 2px;
+        }
+        .lab-2026 h3 {
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: #1f2937;
+        }
+        .group .diagram-links {
+            margin: 8px 0 10px;
+            font-size: 0.95em;
+        }
+        .group img[alt] {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e4e8ef;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+    </style>
 </head>
-<body>
-    <!-- Дата обновлена на 23 марта 2026 -->
-    <p>Создано: 23 марта 2026</p>
-     <!-- === НОВЫЙ БЛОК: Точность модели кредита === -->
-    <h2>23 марта, 2026</h2>
-    <article class="faq-entry">
-        <p><strong>🤖 Модель кредитного скоринга:</strong> Обновление метрик</p>
-        <p><strong>📈 Точность (Accuracy):</strong> 70.00%</p>
-        <p><small>Обучено на 1 000 записях: возраст, пол, зарплата. Логистическая регрессия.</small></p>
-        <small class="publish-date">📅 Опубликовано: 23.03.26</small>
-    </article>
-    <!-- === КОНЕЦ БЛОКА === -->
-        <!-- === НОВЫЙ БЛОК: Модель страхования КАСКО === -->
-    <h2>23 марта, 2026</h2>
-    <article class="faq-entry">
-        <p><strong>🚗 Запуск модели:</strong> Страхование КАСКО</p>
-        <p><strong>📈 Точность решения (Accuracy):</strong> 88.80%</p>
-        <p><small>Данные: возраст, стаж вождения, число ДТП. Обучено на 1 000 симуляций. Random Forest.</small></p>
-        <small class="publish-date">📅 Опубликовано: 23.03.26</small>
-    </article>
-    <!-- === КОНЕЦ БЛОКА === -->
+<body> 
+    <h2>23.03.2026</h2>
+    <p><strong>Тема:</strong> Машинное обучение — кредитный скоринг и страхование КАСКО</p>
     
-    <!-- === НОВЫЙ БЛОК: Прогноз успеваемости === -->
-    <h2>16 марта, 2026</h2>
-    <article class="faq-entry">
-        <p><strong>📚 Студент занимался:</strong> 5 часов</p>
-        <p><strong>🎯 Прогноз баллов:</strong> 50.23</p>
-        <small class="publish-date">📅 Опубликовано: 16.03.26</small>
-    </article>
-    <!-- === КОНЕЦ БЛОКА === --> 
-    
-    <!-- === НОВЫЙ БЛОК: FAQ о доставке === -->
-    <h2>21 февраля, 2026</h2>
-    <article class="faq-entry">
-        <p><strong>❓ Вопрос:</strong> Сколько ждать мой заказ?</p>
-        <p><strong>✅ Ответ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
-        <small class="publish-date">📅 Опубликовано: 21.02.26</small>
-    </article>
-    <!-- === КОНЕЦ БЛОКА === -->
-    
-    <p>Топ-3 предсказаний:<br>
-    running shoe: 99.45%<br>
-    shoe store: 0.27%<br>
-    clogs: 0.15%</p>
-    
-    <p><a href="mailto:ripsomanukyan@gmail.ru">Напишите мне</a></p>
-    
-    <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-
-    <h2>20 декабря, 2025</h2>
-    <!-- пропуск-7 раз -->
-    <p>Поздравление с Рождеством читайте <a href="kolyadka.odt">здесь</a></p>    
-    
-    <h2>2 декабря, 2025</h2>
-    <img src="Icons/free-icon-new-year-balloons-19034402.png" alt="Новый год">
-    <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a></p>
-
-    <h2>15 октября, 2025</h2>
-    <p>Я сделала Новогодние кроссворды для сайта <a href="http://адрес-сайта-друга" title="Блог моего друга">Сайт моего друга</a></p>
-
-    <h2>1 сентября, 2025</h2>
-    <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-    <p>Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.</p>
-
-    <p>Иконки:
-        <a href="https://www.flaticon.com/ru/free-icons/-    " title="Рождественский колокол иконки">Рождественский колокол иконки от Pixelmeetup - Flaticon</a>
-    </p>
+    <div class="bot-response">
+        <h3>📊 Результаты работы с моделями</h3>
+        <ul>
+            <li><strong>Кредитный датасет:</strong> обучена модель логистической регрессии</li>
+            <li><strong>Точность модели:</strong> <code>~73-78%</code></li>
+            <li><strong>Признаки:</strong> возраст, зарплата, пол</li>
+            <li><strong>Целевая переменная:</strong> <code>credit_approved</code></li>
+        </ul>
+        
+        <h3>🚗 Генерация датасета КАСКО</h3>
+        <ul>
+            <li>Создан синтетический датасет: <code>1000 записей</code></li>
+            <li>Признаки: возраст, стаж вождения, число ДТП</li>
+            <li>Логика одобрения: ДТП &lt; 3 И стаж &gt; 1 года</li>
+            <li><strong>Точность модели:</strong> <code>~95-100%</code></li>
+        </ul>
+    </div>
     
     <p>
-        слово пропуск встретилось 7 раз
+        <a href="credit_model.py">Код модели (credit_model.py)</a> ·
+        <a href="kasko_dataset.csv">Датасет КАСКО (CSV)</a>
     </p>
+    
+    <blockquote class="q">Данные — это новая нефть, а модели — двигатель прогресса.</blockquote>
+
+    <h2>16.03.2026</h2>
+    Студент занимался 5 часов
+Прогноз баллов: 50.23
+
+    <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+
+    <img src="Icons/2305759.png" alt="Новый год">
+
+    <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
+
+    <!-- Кнопка "Назад" -->
+    <p>
+        <button onclick="window.history.back()">← Назад</button>
+    </p>
+
+    <h2>20.12.2025</h2>
+    <p>Куратор — 1 раз</p>
+    
+    <p>
+        Иконки: 
+        <a href="https://www.flaticon.com/ru/free-icons/  " 
+           title="рождественский орнамент иконки">
+            Рождественский орнамент иконки от Pixelmeetup — Flaticon
+        </a>
+    </p>
+
+    <h2>01.12.2025</h2>
+    <img src="Icons/картинка.png" alt="Новый год">
+
+    <!-- Рождественская колядка -->
+    <h2>07.01.2026</h2>
+    <div class="kolyadka">
+        <p><strong>Поздравление с Рождеством</strong><br>
+        <em>КОЛЯДКА</em></p>
+        <p>
+            Коляда, коляда — звёздная веда!<br>
+            Поспешай, Дед Мороз, к нашим воротам!<br>
+            С бородой, как иней, с мешком добра,<br>
+            Принеси нам счастья, здоровья и добра!
+        </p>
+        <p>
+            <a href="https://content-studio.sberdevices.ru/media/019b16f5-d46d-7443-b8e4-276feb3439fc/019b5073-71cd-799d-a0c7-9ba5c3ff3ea1.mp4  " 
+               target="_blank" rel="noopener noreferrer">
+                Видео с колядкой
+            </a>
+        </p>
+    </div>
+
+    <h2>15.10.2025</h2>
+    <p>
+        Я сделала Новогодние кроссворды для сайта 
+        <a href="https://alisa20095.github.io/yly/  " 
+           title="Блог моего друга">https://alisa20095.github.io/yly/  </a>.
+    </p>
+
+    <h2>01.09.2025</h2>
+    <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+    <p>
+        Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
+    </p>
+    <p>
+        <a href="krossvordRU.html">Русский кроссворд</a><br>
+        <a href="krossvordEN.html">Английский кроссворд</a>
+    </p>
+
+    <!-- Блок с ответом модели -->
+    <div class="bot-response">
+        <h3>🔧 Технические рекомендации по коду</h3>
+        <p><strong>Исправленные ошибки:</strong></p>
+        <ul>
+            <li><code>&lt;cbody&gt;</code> → <code>&lt;/body&gt;</code> (закрывающий тег)</li>
+            <li><code>&lt;р&gt;</code> (кириллица) → <code>&lt;p&gt;</code> (латиница)</li>
+            <li><code>&lt;hre&gt;</code> → <code>&lt;hr&gt;</code> или <code>&lt;pre&gt;</code></li>
+            <li>Убраны лишние пробелы в концах ссылок <code>href=".../  "</code></li>
+            <li>Контент футера перенесён внутрь <code>&lt;body&gt;</code></li>
+        </ul>
+        <p><strong>Что уже хорошо:</strong> ✅ семантика, ✅ <code>alt</code> у изображений, ✅ <code>rel="noopener"</code> для внешних ссылок</p>
+    </div>
+
+    <!-- Футер с информацией -->
+    <div class="footer-info">
+        <p><strong>Создано:</strong> 14 января 2026</p>
+        <p><strong>Домен:</strong> dari845776.github.io</p>
+        <p><a href="mailto:ilyashevich-2018@mail.ru">✉️ Напишите мне</a></p>
+    </div>
+
+    <h2>19.01.2025</h2>
+    <h1 class="main-title">Решение задач по шифру Цезаря</h1>
+    
+    <h3>1. Определение ключей шифра Цезаря</h3>
+    <p><strong>а. АПЕЛЬСИН → ЫЬЛГЕЙМ</strong></p>
+    <pre>Ключ: k = 18</pre>
+
+    <p><strong>б. АБРИКОС → ЫЬЛГЕЙМ</strong></p>
+    <pre>Ключ: k = 28</pre>
+    
+    <h3>3. Шифрование фамилии с ключом k = 10</h3>
+    <p><strong>Фамилия: ИЛЬЯШЕВИЧ</strong></p>
+    <pre>Зашифрованная фамилия: ЧЩОПЙФТЧК</pre>
+
+    <h2>19.01.2026</h2>
+    <p><em>Пропуск — 3 раза</em></p>
+
+    <h2>30.03.2026</h2>
+    <div class="lab-2026">
+    <p><a href="https://github.com/dari845776/LabaAnalysis.git">Ссылка на код</a></p>
+
+    <h3>Первые строки исходных данных</h3>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>gender</th>
+            <th>race/ethnicity</th>
+            <th>parental level of education</th>
+            <th>...</th>
+            <th>math score</th>
+            <th>reading score</th>
+            <th>writing score</th>
+        </tr>
+        <tr><td>0</td><td>female</td><td>group B</td><td>bachelor's degree</td><td>...</td><td>72</td><td>72</td><td>74</td></tr>
+        <tr><td>1</td><td>female</td><td>group C</td><td>some college</td><td>...</td><td>69</td><td>90</td><td>88</td></tr>
+        <tr><td>2</td><td>female</td><td>group B</td><td>master's degree</td><td>...</td><td>90</td><td>95</td><td>93</td></tr>
+        <tr><td>3</td><td>male</td><td>group A</td><td>associate's degree</td><td>...</td><td>47</td><td>57</td><td>44</td></tr>
+        <tr><td>4</td><td>male</td><td>group C</td><td>some college</td><td>...</td><td>76</td><td>78</td><td>75</td></tr>
+    </table>
+
+    <h3>Данные по классам (группам race/ethnicity)</h3>
+
+    <div class="group">
+        <h3>Group A</h3>
+        <table>
+            <tr><th>#</th><th>gender</th><th>parental level</th><th>math</th><th>reading</th><th>writing</th></tr>
+            <tr><td>3</td><td>male</td><td>associate's degree</td><td>47</td><td>57</td><td>44</td></tr>
+        </table>
+    </div>
+
+    <div class="group">
+        <h3>Group B</h3>
+        <table>
+            <tr><th>#</th><th>gender</th><th>parental level</th><th>math</th><th>reading</th><th>writing</th></tr>
+            <tr><td>0</td><td>female</td><td>bachelor's degree</td><td>72</td><td>72</td><td>74</td></tr>
+            <tr><td>2</td><td>female</td><td>master's degree</td><td>90</td><td>95</td><td>93</td></tr>
+        </table>
+    </div>
+
+    <div class="group">
+        <h3>Group C</h3>
+        <table>
+            <tr><th>#</th><th>gender</th><th>parental level</th><th>math</th><th>reading</th><th>writing</th></tr>
+            <tr><td>1</td><td>female</td><td>some college</td><td>69</td><td>90</td><td>88</td></tr>
+            <tr><td>4</td><td>male</td><td>some college</td><td>76</td><td>78</td><td>75</td></tr>
+        </table>
+    </div>
+
+    <h3>Процесс обучения (ошибка по эпохам)</h3>
+    <table>
+        <tr><th>Эпоха</th><th>Ошибка (MSE)</th></tr>
+        <tr><td>500</td><td>0.021573</td></tr>
+        <tr><td>1000</td><td>0.020473</td></tr>
+        <tr><td>1500</td><td>0.019466</td></tr>
+        <tr><td>2000</td><td>0.018702</td></tr>
+        <tr><td>2500</td><td>0.018262</td></tr>
+        <tr><td>3000</td><td>0.018065</td></tr>
+        <tr><td>3500</td><td>0.017992</td></tr>
+        <tr><td>4000</td><td>0.017968</td></tr>
+        <tr><td>4500</td><td>0.017960</td></tr>
+        <tr><td>5000</td><td>0.017958</td></tr>
+    </table>
+
+    <h3>Итоговые результаты</h3>
+    <div class="results">
+        <p><strong>Ошибка на обучении (MSE)</strong> = 0.017952081698807775</p>
+        <p><strong>Ошибка на тесте (MSE)</strong> = 0.026271943592190098</p>
+        <p><strong>Ошибка на тесте (MSE, реальные оценки)</strong> = 262.7194359219009</p>
+    </div>
+
+    <h3>Примеры прогнозов (реальные оценки)</h3>
+    <table>
+        <tr><th>№</th><th>Истинно</th><th>Прогноз</th></tr>
+        <tr><td>1</td><td>91.0</td><td>66.176674891567</td></tr>
+        <tr><td>2</td><td>53.0</td><td>60.8696706301686</td></tr>
+        <tr><td>3</td><td>80.0</td><td>70.35795839262053</td></tr>
+        <tr><td>4</td><td>74.0</td><td>59.17732520904004</td></tr>
+        <tr><td>5</td><td>84.0</td><td>76.10423513081186</td></tr>
+        <tr><td>6</td><td>81.0</td><td>59.17732520904004</td></tr>
+        <tr><td>7</td><td>69.0</td><td>65.1768049371751</td></tr>
+        <tr><td>8</td><td>54.0</td><td>72.03712601666551</td></tr>
+        <tr><td>9</td><td>87.0</td><td>59.17732520904004</td></tr>
+        <tr><td>10</td><td>51.0</td><td>76.10423513081186</td></tr>
+    </table>
+    </div>
+
+    <h2>13.04.2026</h2>
+    <p><strong>Тема:</strong> Схемы индексных файлов — стоматологическое отделение (врач, медсестра, операция)</p>
+
+    <div class="bot-response">
+        <h3>Сущности и признаки</h3>
+        <ul>
+            <li><strong>Врач:</strong> код врача, ФИО, специализация, кабинет, стаж.</li>
+            <li><strong>Медсестра:</strong> код медсестры, ФИО, категория, смена, код врача.</li>
+            <li><strong>Операция:</strong> код операции, вид операции, дата, длительность, код врача.</li>
+        </ul>
+        <p>Ниже размещены все 7 файлов, как требовалось в задании.</p>
+    </div>
+
+    <div class="group">
+        <h3>1. Общая иерархическая модель</h3>
+        <p>Общая иерархическая модель стоматологического отделения с сущностями «врач», «медсестра» и «операция».</p>
+        <p class="diagram-links">
+            <a href="diagrams/01_hierarchy_dental_department.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/01_hierarchy_dental_department.png" alt="Общая иерархическая модель">
+    </div>
+
+    <div class="group">
+        <h3>2. Врач</h3>
+        <p>Схема основного индекса для сущности «врач».</p>
+        <p class="diagram-links">
+            <a href="diagrams/02_primary_index_doctor.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/02_primary_index_doctor.png" alt="Врач">
+    </div>
+
+    <div class="group">
+        <h3>3. Медсестра</h3>
+        <p>Схема основного индекса для сущности «медсестра».</p>
+        <p class="diagram-links">
+            <a href="diagrams/03_primary_index_nurse.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/03_primary_index_nurse.png" alt="Медсестра">
+    </div>
+
+    <div class="group">
+        <h3>4. Операция</h3>
+        <p>Схема основного индекса для сущности «операция».</p>
+        <p class="diagram-links">
+            <a href="diagrams/04_primary_index_operation.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/04_primary_index_operation.png" alt="Операция">
+    </div>
+
+    <div class="group">
+        <h3>5. Врач (по полю «Специализация»)</h3>
+        <p>Вторичный индекс для сущности «врач» по полю «специализация».</p>
+        <p class="diagram-links">
+            <a href="diagrams/05_secondary_index_doctor_specialization.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/05_secondary_index_doctor_specialization.png" alt="Врач (по полю «Специализация»)">
+    </div>
+
+    <div class="group">
+        <h3>6. Медсестра (по полю «Смена»)</h3>
+        <p>Вторичный индекс для сущности «медсестра» по полю «смена».</p>
+        <p class="diagram-links">
+            <a href="diagrams/06_secondary_index_nurse_shift.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/06_secondary_index_nurse_shift.png" alt="Медсестра (по полю «Смена»)">
+    </div>
+
+    <div class="group">
+        <h3>7. Операция (по полю «Дата операции»)</h3>
+        <p>Вторичный индекс для сущности «операция» по полю «дата».</p>
+        <p class="diagram-links">
+            <a href="diagrams/07_secondary_index_operation_date.drawio" download>Скачать .drawio</a>
+        </p>
+        <img src="diagrams/07_secondary_index_operation_date.png" alt="Операция (по полю «Дата операции»)">
+    </div>
+
+    <h2>11.04.2026</h2>
+    <div class="group">
+        <h3>Модель данных: хирург, пациент, операция и лекарство</h3>
+        <p><strong>Тема:</strong> две иерархические модели одного набора данных (корень — пациент или хирург); лекарство — в поле «Препарат после операции».</p>
+        <img src="diagrams/medical_hierarchy_model.png" alt="Модель данных: хирург, пациент, операция и лекарство (дата операции 11.04.2026)">
+    </div>
+
 </body>
 </html>
