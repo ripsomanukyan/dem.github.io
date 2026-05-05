@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой блог | Dari845776</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .blog-post {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.6s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .post-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .post-content {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .bot-response {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .bot-response h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bot-response ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bot-response li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .bot-response li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .bot-response code {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-dark);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #f1f5f9;
+            transition: background 0.2s;
+        }
+
+        .group {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: border-color 0.3s;
+        }
+
+        .group:hover {
+            border-color: var(--primary);
+        }
+
+        .group h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .results {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .results p {
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        blockquote.q {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 1.1rem;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        blockquote.q:before {
+            content: """;
+            font-size: 4rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #db2777 100%);
+        }
+
+        .footer-info {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .footer-info p {
+            margin: 8px 0;
+        }
+
+        .footer-info a {
+            color: var(--accent);
+        }
+
+        .kolyadka {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kolyadka:before {
+            content: "🎄";
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .kolyadka p {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .kolyadka strong {
+            color: #92400e;
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .kolyadka em {
+            color: #b45309;
+            font-size: 1.2rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 15px 0;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        .lab-2026 {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .diagram-links {
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #ffeaa7 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .blog-post {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-blog"></i> Мой блог</h1>
+            <p>Путешествие в мире технологий и обучения</p>
+        </header>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                05.05.2026
+            </div>
+            <p>
+                <a href="Таблица05.05" class="btn">
+                    <i class="fas fa-table"></i>
+                    ТАБЛИЦА
+                </a>
+            </p>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                23.03.2026
+            </div>
+            <h2 class="post-title">Машинное обучение — кредитный скоринг и страхование КАСКО</h2>
+            
+            <div class="bot-response">
+                <h3><i class="fas fa-chart-bar"></i> Результаты работы с моделями</h3>
+                <ul>
+                    <li><strong>Кредитный датасет:</strong> обучена модель логистической регрессии</li>
+                    <li><strong>Точность модели:</strong> <code>~73-78%</code></li>
+                    <li><strong>Признаки:</strong> возраст, зарплата, пол</li>
+                    <li><strong>Целевая переменная:</strong> <code>credit_approved</code></li>
+                </ul>
+                
+                <h3><i class="fas fa-car"></i> Генерация датасета КАСКО</h3>
+                <ul>
+                    <li>Создан синтетический датасет: <code>1000 записей</code></li>
+                    <li>Признаки: возраст, стаж вождения, число ДТП</li>
+                    <li>Логика одобрения: ДТП &lt; 3 И стаж &gt; 1 года</li>
+                    <li><strong>Точность модели:</strong> <code>~95-100%</code></li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 20px;">
+                <a href="credit_model.py" class="btn">
+                    <i class="fas fa-code"></i>
+                    Код модели (credit_model.py)
+                </a>
+                <a href="kasko_dataset.csv" class="btn btn-secondary" style="margin-left: 10px;">
+                    <i class="fas fa-file-csv"></i>
+                    Датасет КАСКО (CSV)
+                </a>
+            </p>
+            
+            <blockquote class="q">Данные — это новая нефть, а модели — двигатель прогресса.</blockquote>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                16.03.2026
+            </div>
+            <p><strong>Студент занимался 5 часов</strong></p>
+            <p><span class="highlight">Прогноз баллов: 50.23</span></p>
+            <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+            <img src="Icons/2305759.png" alt="Новый год">
+            <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
+            <button onclick="window.history.back()" class="btn">
+                <i class="fas fa-arrow-left"></i>
+                Назад
+            </button>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                20.12.2025
+            </div>
+            <p>Куратор — 1 раз</p>
+            <p>
+                Иконки: 
+                <a href="https://www.flaticon.com/ru/free-icons/" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i>
+                    Рождественский орнамент иконки от Pixelmeetup — Flaticon
+                </a>
+            </p>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                01.12.2025
+            </div>
+            <img src="Icons/картинка.png" alt="Новый год">
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                07.01.2026
+            </div>
+            <div class="kolyadka">
+                <p>
+                    <strong>Поздравление с Рождеством</strong>
+                    <em>КОЛЯДКА</em>
+                </p>
+                <p>
+                    Коляда, коляда — звёздная веда!<br>
+                    Поспешай, Дед Мороз, к нашим воротам!<br>
+                    С бородой, как иней, с мешком добра,<br>
+                    Принеси нам счастья, здоровья и добра!
+                </p>
+                <p>
+                    <a href="https://content-studio.sberdevices.ru/media/019b16f5-d46d-7443-b8e4-276feb3439fc/019b5073-71cd-799d-a0c7-9ba5c3ff3ea1.mp4" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="btn">
+                        <i class="fas fa-video"></i>
+                        Видео с колядкой
+                    </a>
+                </p>
+            </div>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                15.10.2025
+            </div>
+            <p>
+                Я сделала Новогодние кроссворды для сайта 
+                <a href="https://alisa20095.github.io/yly/" target="_blank" rel="noopener">
+                    <i class="fas fa-external-link-alt"></i>
+                    https://alisa20095.github.io/yly/
+                </a>.
+            </p>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                01.09.2025
+            </div>
+            <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+            <p>
+                Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
+            </p>
+            <p>
+                <a href="krossvordRU.html" class="btn">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Русский кроссворд
+                </a>
+                <a href="krossvordEN.html" class="btn btn-secondary" style="margin-left: 10px;">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Английский кроссворд
+                </a>
+            </p>
+
+            <div class="bot-response">
+                <h3><i class="fas fa-wrench"></i> Технические рекомендации по коду</h3>
+                <p><strong>Исправленные ошибки:</strong></p>
+                <ul>
+                    <li><code>&lt;cbody&gt;</code> → <code>&lt;/body&gt;</code> (закрывающий тег)</li>
+                    <li><code>&lt;р&gt;</code> (кириллица) → <code>&lt;p&gt;</code> (латиница)</li>
+                    <li><code>&lt;hre&gt;</code> → <code>&lt;hr&gt;</code> или <code>&lt;pre&gt;</code></li>
+                    <li>Убраны лишние пробелы в концах ссылок <code>href=".../  "</code></li>
+                    <li>Контент футера перенесён внутрь <code>&lt;body&gt;</code></li>
+                </ul>
+                <p><strong>Что уже хорошо:</strong> ✅ семантика, ✅ <code>alt</code> у изображений, ✅ <code>rel="noopener"</code> для внешних ссылок</p>
+            </div>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                19.01.2025
+            </div>
+            <h2 class="post-title">Решение задач по шифру Цезаря</h2>
+            
+            <h3>1. Определение ключей шифра Цезаря</h3>
+            <p><strong>а. АПЕЛЬСИН → ЫЬЛГЕЙМ</strong></p>
+            <pre>Ключ: k = 18</pre>
+
+            <p><strong>б. АБРИКОС → ЫЬЛГЕЙМ</strong></p>
+            <pre>Ключ: k = 28</pre>
+            
+            <h3>3. Шифрование фамилии с ключом k = 10</h3>
+            <p><strong>Фамилия: ИЛЬЯШЕВИЧ</strong></p>
+            <pre>Зашифрованная фамилия: ЧЩОПЙФТЧК</pre>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                19.01.2026
+            </div>
+            <p><em>Пропуск — 3 раза</em></p>
+        </article>
+
+        <article class="blog-post">
+            <div class="post-date">
+                <i class="far fa-calendar"></i>
+                30.03.2026
+            </div>
+            <div class="lab-2026">
+                <p><a href="https://github.com/dari845776/LabaAnalysis.git" class="btn">
+                    <i class="fab fa-github"></i>
+                    Ссылка на код
+                </a></p>
+
+                <h3 style="margin: 25px 0 15px; color: var(--primary-dark);">Первые строки исходных данных</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>gender</th>
+                            <th>race/ethnicity</th>
+                            <th>parental level of education</th>
+                            <th>...</th>
+                            <th>math score</th>
+                            <th>reading score</th>
+                            <th>writing score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>female</td><td>group B</td><td>bachelor's degree</td><td>...</td><td>72</td><td>72</td><td>74</td></tr>
+                        <tr><td>1</td><td>female</td><td>group C</td><td>some college</td><td>...</td><td>69</td><td>90</td><td>88</td></tr>
+                        <tr><td>2</td><td>female</td><td>group B</td><td>master's degree</td><td>...</td><td>90</td><td>95</td><td>93</td></tr>
+                        <tr><td>3</td><td>male</td><td>group A</td><td>associate's degree</td><td>...</td><td>47</td><td>57</td>
